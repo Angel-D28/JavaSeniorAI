@@ -1,0 +1,4 @@
+Se hace este archivo con el fin de utilizar los comandos de git
+clase 1 git  y github
+
+Prueba dos del merge y otros comandos 
