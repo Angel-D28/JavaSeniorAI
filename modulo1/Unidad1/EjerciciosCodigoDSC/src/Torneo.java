@@ -3,7 +3,8 @@ import java.util.Scanner;
 
 public class Torneo {
     public static Scanner sc = new Scanner(System.in);
-    public static String[] jugadores = { "Fays", "Santiago", "Sofia", "Luis", "Mario" };
+    //public static String[] jugadores = { "Fays", "Santiago", "Sofia", "Luis", "Mario" };
+    public static String[] jugadores = new String[10];
 
     public static void main(String[] args) {
         menu();
@@ -55,15 +56,9 @@ public class Torneo {
             nombre = sc.nextLine();
             } while (nombre.isEmpty()); // el ciclo se repetirá mientras el nombre esté vacío, asegurando que se ingrese
                                     // un nombre válido
-            for (int i = 0; i < jugadores.length; i++) {
+            for (int i = 0; i < jugadores.length ; i++) {
                 if (jugadores[i] == null) {
                     jugadores[i] = nombre;
-                    break;
-                }else{
-                    String[] jugadoresAmpliado = Arrays.copyOf(jugadores, jugadores.length + 1);
-                    jugadoresAmpliado[jugadoresAmpliado.length - 1] = nombre;
-                    jugadores = jugadoresAmpliado;
-                    jugadoresAmpliado = null;
                     break;
                 }
             }
@@ -74,7 +69,9 @@ public class Torneo {
     public static void mostrarJugadores() {
         System.out.println("Jugadores Inscritos :");
         for (int i = 0; i < jugadores.length; i++) {
-            System.out.println(i + ". " + jugadores[i] + "\n");
+            if (jugadores[i] != null) {
+                System.out.println((i+1) + ". " + jugadores[i] + "\n");
+            }
         }
     }
 
@@ -83,10 +80,12 @@ public class Torneo {
         String nombreEliminar = sc.nextLine().toLowerCase();
         boolean busquedaExitosa = false;
         for (int i = 0; i < jugadores.length; i++) {
-            if (jugadores[i].toLowerCase().equals(nombreEliminar)) {
-                jugadores[i] = null;
+            if (jugadores[i] != null) {
+                if(jugadores[i].toLowerCase().equals(nombreEliminar)){
+                    jugadores[i] = null;
                 System.out.println("Jugador " + nombreEliminar + " eliminado exitosamente");
                 busquedaExitosa = true;
+                }
             }
         }
         if (!busquedaExitosa) {

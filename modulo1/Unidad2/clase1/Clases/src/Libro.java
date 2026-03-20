@@ -42,4 +42,12 @@ public class Libro {
     public void setPrecio(int precio){
         this.precio = precio;
     }
+
+    @Override
+    public String toString() {
+        return "\tlibro: " + titulo + "\n\tAutor: " + autor + "\n\tISNB: "
+                + ISBN + "\n\tPrecio: " + precio;
+    }
+
+    
 }

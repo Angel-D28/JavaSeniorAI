@@ -1,13 +1,14 @@
-import java.sql.Date;
+import java.time.LocalDate;
 
 public class Vuelo {
     String origen;
     String destino;
-    Date fecha;
+    LocalDate fecha;
+    int pasajeros;
 
     
 
-    public Vuelo(String origen, String destino, Date fecha, int pasajeros) {
+    public Vuelo(String origen, String destino, LocalDate fecha, int pasajeros) {
         this.origen = origen;
         this.destino = destino;
         this.fecha = fecha;
@@ -27,10 +28,10 @@ public class Vuelo {
     public void setDestino(String destino) {
         this.destino = destino;
     }
-    public Date getFecha() {
+    public LocalDate getFecha() {
         return fecha;
     }
-    public void setFecha(Date fecha) {
+    public void setFecha(LocalDate fecha) {
         this.fecha = fecha;
     }
     public int getPasajeros() {
@@ -39,5 +40,13 @@ public class Vuelo {
     public void setPasajeros(int pasajeros) {
         this.pasajeros = pasajeros;
     }
-    int pasajeros;
+
+
+    @Override
+    public String toString() {
+        return "Vuelo [origen=" + origen + ", destino=" + destino + ", fecha=" + fecha + ", pasajeros=" + pasajeros
+                + "]";
+    }
+    
+    
 }
